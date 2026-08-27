@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = ROOT / "schemas" / "problem-card.schema.json"
 EXAMPLE_PATH = ROOT / "examples" / "problem-card.example.json"
 BOSTON_EXAMPLE_PATH = ROOT / "examples" / "boston-open311-damaged-sign.json"
+SAN_FRANCISCO_EXAMPLE_PATH = ROOT / "examples" / "san-francisco-muni-elevator.json"
 REQUIRED_FILES = (
     "README.md",
     "AGENTS.md",
@@ -27,8 +28,11 @@ REQUIRED_FILES = (
     "schemas/problem-card.schema.json",
     "examples/problem-card.example.json",
     "examples/boston-open311-damaged-sign.json",
+    "examples/san-francisco-muni-elevator.json",
     "jurisdictions/us/boston/README.md",
+    "jurisdictions/us/san-francisco/README.md",
     "docs/runs/boston-open311-2026-08-27.md",
+    "docs/runs/san-francisco-muni-elevator-2026-08-27.md",
     "assets/branding/README.md",
     "assets/branding/country-of-geniuses-logo-v1.png",
     "assets/branding/country-of-geniuses-avatar-v1.png",
@@ -140,6 +144,7 @@ def main() -> int:
     else:
         require_valid(validator, str(EXAMPLE_PATH.relative_to(ROOT)), example)
         require_valid(validator, str(BOSTON_EXAMPLE_PATH.relative_to(ROOT)), load_json(BOSTON_EXAMPLE_PATH))
+        require_valid(validator, str(SAN_FRANCISCO_EXAMPLE_PATH.relative_to(ROOT)), load_json(SAN_FRANCISCO_EXAMPLE_PATH))
 
     if not args.skip_regressions and not args.card:
         run_regressions(validator, example)

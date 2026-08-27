@@ -5,3 +5,8 @@ packs:
     scope: City of Boston, Massachusetts, United States
     status: tested-read
     checked: 2026-08-27
+  - id: us-san-francisco
+    path: jurisdictions/us/san-francisco
+    scope: City and County of San Francisco, California, United States
+    status: tested-read
+    checked: 2026-08-27

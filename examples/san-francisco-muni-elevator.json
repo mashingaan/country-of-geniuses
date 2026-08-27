@@ -1,0 +1,85 @@
+{
+  "id": "cog-san-francisco-powell-hallidie-elevator",
+  "title": "Powell Station Hallidie Plaza street elevator is listed out of service",
+  "summary": "SFMTA's current elevator status feed listed the Hallidie Plaza street elevator at Powell Station as out of service on 2026-08-27. A bounded public SF 311 search found no matching elevator case at Powell or Hallidie opened in the preceding 90 days. Older closed matches exist, so the prepared action first asks SFMTA to confirm whether an active maintenance case already exists.",
+  "status": "prepared",
+  "problem_type": "accessibility",
+  "jurisdiction": {
+    "country_code": "US",
+    "region": "California",
+    "city": "San Francisco",
+    "location_label": "Powell Station, Hallidie Plaza street elevator",
+    "location_precision": "public_facility"
+  },
+  "evidence": [
+    {
+      "source_url": "https://www.sfmta.com/elevator-status/elevatorstatus.php?src=prod",
+      "source_type": "service_status",
+      "source_updated_at": "2026-08-27T16:58:00Z",
+      "accessed_at": "2026-08-27T17:05:56Z",
+      "supports": "The official SFMTA status feed was valid as of 9:58 AM local time and listed Powell Station's Hallidie Plaza - Street Elevator as Out of service. The same feed listed other Powell elevators in service.",
+      "reliability": 0.95
+    },
+    {
+      "source_url": "https://www.sfmta.com/travel-updates/muni-metro-elevator-status",
+      "source_type": "official_service_page",
+      "accessed_at": "2026-08-27T17:02:41Z",
+      "supports": "The official SFMTA page describes the elevator status page as current at page load and directs people to a Station Agent or 311 when an elevator is out of service.",
+      "reliability": 0.9
+    },
+    {
+      "source_url": "https://www.sfmta.com/contact-us",
+      "source_type": "official_service_page",
+      "accessed_at": "2026-08-27T17:02:41Z",
+      "supports": "The official SFMTA contact page lists the Muni Feedback form and 311 as public routes for Muni service concerns.",
+      "reliability": 0.9
+    },
+    {
+      "source_url": "https://data.sfgov.org/resource/vw6y-z8j6.json?%24select=count%28%2A%29%20as%20count&%24where=service_name%3D%27Muni%20Service%20Feedback%27%20and%20service_details%3D%27elevators_escalators%27%20and%20requested_datetime%20%3E%3D%20%272026-05-29T00%3A00%3A00%27%20and%20%28upper%28address%29%20like%20%27%25POWELL%25%27%20or%20upper%28address%29%20like%20%27%25HALLIDIE%25%27%29",
+      "source_type": "official_record",
+      "source_updated_at": "2026-08-27T10:17:05Z",
+      "accessed_at": "2026-08-27T17:06:24Z",
+      "supports": "The public SF 311 query returned count 0 for elevator cases at Powell or Hallidie opened from 2026-05-29 through the check time. This is a public-window duplicate check, not proof that no internal SFMTA case exists.",
+      "reliability": 0.85
+    },
+    {
+      "source_url": "https://data.sfgov.org/resource/vw6y-z8j6.json?%24select=service_request_id%2Crequested_datetime%2Cupdated_datetime%2Cstatus_description%2Caddress&%24where=service_name%3D%27Muni%20Service%20Feedback%27%20and%20service_details%3D%27elevators_escalators%27%20and%20%28upper%28address%29%20like%20%27%25POWELL%25%27%20or%20upper%28address%29%20like%20%27%25HALLIDIE%25%27%29&%24order=requested_datetime%20desc&%24limit=10",
+      "source_type": "official_record",
+      "accessed_at": "2026-08-27T17:02:41Z",
+      "supports": "The wider historical query found five Powell-related elevator records. All were closed. The newest was opened on 2025-10-15 and last updated on 2025-10-16.",
+      "reliability": 0.85
+    }
+  ],
+  "responsible_service": {
+    "name": "San Francisco Municipal Transportation Agency Muni service",
+    "basis": "SFMTA owns the official Muni Metro elevator status page and its contact guidance routes out-of-service elevator reports to a Station Agent, 311, or Muni Feedback.",
+    "official_url": "https://www.sfmta.com/getting-around/muni/muni-feedback",
+    "contact_method": "SFMTA Muni Feedback form",
+    "confidence": 0.93
+  },
+  "action": {
+    "requested_action": "Confirm the maintenance state and restore the Powell Station Hallidie Plaza street elevator if no active case exists.",
+    "draft": "Hello. SFMTA's live elevator status feed, checked on August 27, 2026, lists Powell Station's Hallidie Plaza street elevator as Out of service, with Last Changed shown as January 16, 2020. Could you please confirm whether an active maintenance case already exists for this specific elevator? If no active case exists, please open a maintenance request for the current out-of-service condition and provide the public case reference and expected restoration date if available. A public SF 311 search found no matching Muni elevator case at Powell or Hallidie opened in the preceding 90 days, although older closed matches exist. If the source timestamp is stale, please correct the public elevator status page. This is a non-emergency accessibility and maintenance report.",
+    "channel": "SFMTA Muni Feedback form",
+    "human_confirmation_required": true
+  },
+  "privacy": {
+    "contains_personal_data": false,
+    "redaction_reviewed": true,
+    "redaction_notes": "Only a public transit station and public facility label are included. No person, private address, contact detail, photo, token, or case identifier is included."
+  },
+  "audit": {
+    "created_at": "2026-08-27T17:02:41Z",
+    "updated_at": "2026-08-27T17:06:24Z",
+    "checks": [
+      "Official SFMTA live status endpoint returned HTTP 200",
+      "The status feed was valid as of 2026-08-27 09:58 AM Pacific time",
+      "Hallidie Plaza street elevator was listed Out of service",
+      "The bounded public SF 311 duplicate query returned count 0",
+      "Historical matching public records were closed and retained as context",
+      "SFMTA Muni Feedback was selected from official routing guidance",
+      "No write endpoint or feedback form was called",
+      "The action draft requires explicit human confirmation"
+    ]
+  }
+}
