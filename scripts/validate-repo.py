@@ -33,6 +33,8 @@ REQUIRED_FILES = (
     "assets/branding/country-of-geniuses-logo-v1.png",
     "assets/branding/country-of-geniuses-avatar-v1.png",
     "assets/branding/logo-prompts-v1.md",
+    ".github/ISSUE_TEMPLATE/signal.yml",
+    "docs/community.md",
 )
 
 

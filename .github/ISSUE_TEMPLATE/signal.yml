@@ -1,0 +1,66 @@
+name: Civic signal
+description: Share an honest public-service signal for community verification
+title: "[Signal] "
+labels:
+  - signal
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We welcome local knowledge and honest uncertainty. This issue is public. Do not include names, contact details, exact private addresses, credentials, private correspondence, or identifying media.
+  - type: textarea
+    id: signal
+    attributes:
+      label: What happened?
+      description: Describe the public-service problem in neutral language.
+      placeholder: A public facility or service appears to have a problem because...
+    validations:
+      required: true
+  - type: input
+    id: jurisdiction
+    attributes:
+      label: General jurisdiction and location
+      description: Give a country, city, district, street, or public facility. Avoid private addresses.
+      placeholder: Boston, Massachusetts, public intersection
+    validations:
+      required: true
+  - type: input
+    id: observed_at
+    attributes:
+      label: When was it observed?
+      description: Use an approximate date and time if exact timing is not known.
+      placeholder: 2026-08-27 around 18:00 local time
+    validations:
+      required: true
+  - type: textarea
+    id: public_sources
+    attributes:
+      label: Public evidence
+      description: Link public sources and explain what each one supports. Do not paste private API responses.
+      placeholder: https://example.org/source - supports that...
+    validations:
+      required: true
+  - type: textarea
+    id: existing_request
+    attributes:
+      label: Existing request or duplicate check
+      description: Share a public reference or say what was checked and remains unknown.
+      placeholder: No public request found in the checked source as of...
+    validations:
+      required: true
+  - type: textarea
+    id: useful_next_step
+    attributes:
+      label: Useful next step
+      description: What would a responsible public-service response or investigation outcome be?
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed personal data and identifying material.
+          required: true
+        - label: This is not an emergency or an immediate danger.
+          required: true

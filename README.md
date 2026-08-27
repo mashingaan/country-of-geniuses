@@ -25,6 +25,14 @@ Both modes use the same flow:
 
 The first release focuses on investigation and preparation. The repository itself is the harness. A future runtime may automate selected parts, but no runtime is required to start contributing value.
 
+## An open community
+
+Country of Geniuses is intentionally an open-by-default community project. We are looking for honest, concrete, and checkable signals from people who know their local context. A useful signal can help us grow the public knowledge base and improve the skills, jurisdiction packs, and integration guidance in this repository.
+
+You do not need to be a developer. Share what happened, where and when it was observed, which public sources support it, whether an existing request is already known, and what a useful next step would be. We will verify the signal before treating it as a case and will publish only the minimum redacted information needed for others to learn from it.
+
+Start with the [Civic signal issue form](https://github.com/mashingaan/country-of-geniuses/issues/new?template=signal.yml). Honest uncertainty is welcome. Fabricated, abusive, identifying, or spam signals are not useful to the commons.
+
 ## What is inside
 
 | Path | Purpose |
