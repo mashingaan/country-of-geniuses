@@ -13,7 +13,7 @@ Write down the jurisdiction, problem type, location precision, time window, perm
 
 ## 2. Build the evidence set
 
-Collect public URLs, source types, published or observed times, access times, and one sentence describing what each source supports. Separate official records, official service pages, public reports, news, community reports, and direct observations. Preserve uncertainty and conflicting evidence. Completion means each material claim has a source or is labeled as unverified.
+Collect public URLs, source types, the correct timestamps, access times, and one sentence describing what each source supports. Distinguish direct observation time from source metadata such as request creation or record update time. Separate official records, official service pages, public reports, news, community reports, and direct observations. Preserve uncertainty and conflicting evidence. Completion means each material claim has a source or is labeled as unverified.
 
 ## 3. Check currentness and duplicates
 

@@ -16,7 +16,7 @@
       "source_url": "https://311.boston.gov/open311/v2/requests/101006740558.json",
       "source_type": "official_record",
       "requested_at": "2026-08-27T16:15:25Z",
-      "observed_at": "2026-08-27T16:16:06Z",
+      "source_updated_at": "2026-08-27T16:16:06Z",
       "accessed_at": "2026-08-27T16:36:32Z",
       "supports": "The public Open311 record reports request 101006740558 as open under Damaged Sign. Address, coordinates, media, and token are omitted from this card.",
       "reliability": 0.95

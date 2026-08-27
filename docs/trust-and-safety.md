@@ -4,7 +4,7 @@ The project earns trust through inspectable process and honest limits. Open sour
 
 ## Evidence and uncertainty
 
-Every claim about a public problem should be tied to a source, observation time, access time, and a short explanation of what the source supports. Mark stale, conflicting, incomplete, and unverified evidence. Never turn a weak signal into an accusation.
+Every claim about a public problem should be tied to a source, the correct kind of timestamp, access time, and a short explanation of what the source supports. Distinguish when a problem was observed from when a reporting service created or updated its record. Mark stale, conflicting, incomplete, and unverified evidence. Never turn a weak signal into an accusation.
 
 ## Public and private boundary
 

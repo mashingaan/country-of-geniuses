@@ -35,8 +35,9 @@
           "source_url": {"type": "string", "format": "uri"},
           "source_type": {"type": "string", "enum": ["official_record", "official_service_page", "public_report", "service_status", "news", "community_report", "direct_observation", "other"]},
           "published_at": {"type": "string", "format": "date-time"},
-          "requested_at": {"type": "string", "format": "date-time"},
-          "observed_at": {"type": "string", "format": "date-time"},
+          "requested_at": {"type": "string", "format": "date-time", "description": "When the public request was created by the reporting service."},
+          "source_updated_at": {"type": "string", "format": "date-time", "description": "When the source record says it was last updated. This is not necessarily when the problem was observed."},
+          "observed_at": {"type": "string", "format": "date-time", "description": "When the problem was directly observed or explicitly reported as observed."},
           "accessed_at": {"type": "string", "format": "date-time"},
           "supports": {"type": "string", "minLength": 1, "maxLength": 500},
           "reliability": {"type": "number", "minimum": 0, "maximum": 1}
