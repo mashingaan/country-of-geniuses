@@ -29,6 +29,10 @@ REQUIRED_FILES = (
     "examples/boston-open311-damaged-sign.json",
     "jurisdictions/us/boston/README.md",
     "docs/runs/boston-open311-2026-08-27.md",
+    "assets/branding/README.md",
+    "assets/branding/country-of-geniuses-logo-v1.png",
+    "assets/branding/country-of-geniuses-avatar-v1.png",
+    "assets/branding/logo-prompts-v1.md",
 )
 
 

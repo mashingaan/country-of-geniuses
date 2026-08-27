@@ -2,6 +2,10 @@
 
 Open-source agent harness for civic problem discovery and responsible work with public services.
 
+<p align="center">
+  <img src="assets/branding/country-of-geniuses-logo-v1.png" alt="Country of Geniuses logo" width="760">
+</p>
+
 > Give an agent a territory, a problem area, and this repository. It gains reusable skills, local context, integration knowledge, and a safe way to turn findings into human-reviewed action.
 
 ## The idea
@@ -30,6 +34,7 @@ The first release focuses on investigation and preparation. The repository itsel
 | `examples/` | Fictional examples for agents and contributors |
 | `jurisdictions/` | Country and city context packs |
 | `integrations/` | API and MCP knowledge, contracts, and verification status |
+| `assets/branding/` | Project logo, GitHub avatar, and generation prompts |
 | `docs/` | Architecture, workflow, safety, and community guidance |
 | `docs/research/` | Dated research leads and source-backed patterns |
 | `scripts/` | Small local checks for repository consistency |
