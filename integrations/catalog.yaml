@@ -1,2 +1,39 @@
 version: 0.1
-integrations: []
+integrations:
+  - id: boston-open311-read-only
+    service: "Boston BOS:311 Open311"
+    status: tested-read
+    official_documentation:
+      - https://311.boston.gov/open311
+      - https://311.boston.gov/open311/docs
+      - https://www.open311.org/develop/
+    endpoint: https://311.boston.gov/open311/v2
+    capabilities:
+      read:
+        - GET /services.json
+        - GET /requests.json
+        - GET /requests/{service_request_id}.json
+      documented_read_not_tested:
+        - GET /services/{service_code}.json
+      write: not tested and not supported by this repository
+    authentication:
+      read: No credential was used in the dated read-only test
+      write: The official documentation describes API-key handling and no write permission is claimed
+    limits:
+      default_requests_per_minute: 10
+      date_filter_window_days: 90
+      pagination: Use documented per_page and page parameters
+      rate_limit_response: HTTP 429 with Retry-After when provided
+    duplicate_behavior: Public request listing and lookup can reveal matching records, but no private or internal record is covered
+    privacy: Responses may include addresses, coordinates, descriptions, media URLs, and tokens. Redact them before publication.
+    human_confirmation: Required before any external action. This manifest exposes read-only knowledge only.
+    verification:
+      checked_at: 2026-08-27
+      smoke_test_at: 2026-08-27T18:53:13Z
+      environment: Public HTTPS endpoint and PowerShell read-only requests
+      evidence:
+        - GET /services.json returned HTTP 200 with 10 categories
+        - GET /requests.json returned HTTP 200 with documented pagination
+        - GET /requests/{service_request_id}.json returned HTTP 200 for a public record
+    maintainer: Country of Geniuses maintainers
+    next_recheck: 2026-09-10

@@ -1,9 +1,14 @@
 # Local agent state and credentials
 .env
 .env.*
+!.env.example
 .secrets/
 .local/
 .private/
+
+# Participant-local investigation output
+local-output/
+*.local.json
 
 # Runtime output
 tmp/

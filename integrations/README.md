@@ -28,7 +28,7 @@ Every integration should document:
 - Test evidence, date, and environment
 - Maintainer and next recheck date
 
-The starter manifest is `integrations/catalog.yaml`. It is intentionally empty. Add a real integration only after its documentation and scope are understood.
+The starter manifest is `integrations/catalog.yaml`. It contains a method-scoped Boston read-only profile because that path was tested against the public endpoint. Add a new integration only after its documentation and scope are understood.
 
 ## MCP guidance
 

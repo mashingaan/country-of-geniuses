@@ -45,23 +45,24 @@ Start with the [Civic signal issue form](https://github.com/mashingaan/country-o
 | `assets/branding/` | Project logo, GitHub avatar, and generation prompts |
 | `docs/` | Architecture, workflow, safety, and community guidance |
 | `docs/research/` | Dated research leads and source-backed patterns |
+| `docs/agent-runbook.md` | Copy-paste setup and read-only run instructions |
 | `scripts/` | Small local checks for repository consistency |
 
 ## Current status
 
-This is the first foundation increment. It contains the harness model, one reusable civic triage skill, a problem-card schema, contribution rules, safety boundaries, one dated Boston read-only pack, and one audited San Francisco accessibility run.
+This is the first working increment. It contains the harness model, reusable civic triage and Open311 read-only discovery skills, a problem-card schema, contribution rules, safety boundaries, one dated Boston read-only pack, and one audited San Francisco accessibility run.
 
-The integration registry remains empty by design. The Boston and San Francisco packs document read-only evidence and make no write claim. The [San Francisco run](examples/san-francisco-muni-elevator.json) demonstrates why ownership and active project context must be checked before a draft is prepared. It records a real routing error and stops without sending or preparing a duplicate repair request. No government endpoint is presented as live for submission until a contributor documents and verifies it. The next milestone is a narrow, non-emergency pilot with a human approving every external action.
+The integration registry contains one method-scoped `tested-read` profile for Boston Open311. The Boston and San Francisco packs document read-only evidence and make no write claim. The [San Francisco run](examples/san-francisco-muni-elevator.json) demonstrates why ownership and active project context must be checked before a draft is prepared. It records a real routing error and stops without sending or preparing a duplicate repair request. No government endpoint is presented as live for submission. Start with the [agent runbook](docs/agent-runbook.md) for a reproducible local run. The next milestone is a narrow, non-emergency pilot with a human approving every external action.
 
 ## Quick start
 
 1. Read `AGENTS.md`.
 2. Read `docs/trust-and-safety.md`.
-3. Load `skills/civic-problem-triage/SKILL.md` into your agent.
+3. Load `skills/civic-problem-triage/SKILL.md` and the relevant specialized skill into your agent.
 4. Give the agent a bounded territory, topic, and time window.
 5. Keep private evidence, credentials, and drafts outside this repository.
 
-For a new jurisdiction, start with `jurisdictions/README.md`. For a connector or MCP server, start with `integrations/README.md`.
+For the exact prompt and a tested Boston read-only path, use the [agent runbook](docs/agent-runbook.md). For a new jurisdiction, start with `jurisdictions/README.md`. For a connector or MCP server, start with `integrations/README.md`.
 
 ## Validate
 

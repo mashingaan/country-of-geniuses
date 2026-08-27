@@ -25,6 +25,7 @@ REQUIRED_FILES = (
     "SECURITY.md",
     "docs/trust-and-safety.md",
     "skills/civic-problem-triage/SKILL.md",
+    "skills/open311-read-only-discovery/SKILL.md",
     "schemas/problem-card.schema.json",
     "examples/problem-card.example.json",
     "examples/boston-open311-damaged-sign.json",
@@ -39,6 +40,8 @@ REQUIRED_FILES = (
     "assets/branding/logo-prompts-v1.md",
     ".github/ISSUE_TEMPLATE/signal.yml",
     "docs/community.md",
+    "docs/agent-runbook.md",
+    ".gitignore",
 )
 
 
