@@ -36,9 +36,9 @@ The first release focuses on investigation and preparation. The repository itsel
 
 ## Current status
 
-This is the first foundation increment. It contains the harness model, one reusable civic triage skill, a problem-card schema, contribution rules, and safety boundaries.
+This is the first foundation increment. It contains the harness model, one reusable civic triage skill, a problem-card schema, contribution rules, safety boundaries, and one dated Boston read-only pack.
 
-The integration registry starts empty by design. No government endpoint is presented as live until a contributor documents and verifies it. The next milestone is a narrow, non-emergency pilot in one jurisdiction with a human approving every external action.
+The integration registry remains empty by design. The Boston pack documents read-only evidence and makes no write claim. No government endpoint is presented as live for submission until a contributor documents and verifies it. The next milestone is a narrow, non-emergency pilot with a human approving every external action.
 
 ## Quick start
 
@@ -49,6 +49,10 @@ The integration registry starts empty by design. No government endpoint is prese
 5. Keep private evidence, credentials, and drafts outside this repository.
 
 For a new jurisdiction, start with `jurisdictions/README.md`. For a connector or MCP server, start with `integrations/README.md`.
+
+## Validate
+
+Install the development dependency once with `python -m pip install -r requirements-dev.txt`, then run `python scripts/validate-repo.py` or `powershell -ExecutionPolicy Bypass -File scripts/validate-repo.ps1`. The check validates all public examples against the full JSON Schema and runs negative regression cases for invalid statuses, empty evidence, missing jurisdiction, discarded cards without a stop reason, and unverified closed outcomes.
 
 ## Trust model
 

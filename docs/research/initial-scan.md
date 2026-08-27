@@ -16,8 +16,8 @@ Checked 2026-08-27. This is a shortlist for future skills and integration work, 
 
 - Official references: [BOS:311 API page](https://311.boston.gov/open311), [API documentation](https://311.boston.gov/open311/docs)
 - Relevance: a concrete city implementation with service-request behavior, JSON and XML formats, API keys, and documented rate limiting
-- Capability boundary: read behavior is documented. API access requires an approved key, default usage is rate limited, and write behavior must be tested and approved before any connector can submit
-- Skill implication: surface the API key requirement, rate limit, 90-day date-window limit, and the need to check service definitions before preparing a request
+- Capability boundary: method-level behavior matters. On 2026-08-27, an anonymous `GET https://311.boston.gov/open311/v2/services.json` returned HTTP 200 with 10 service categories. The official page also documents API keys and default rate limiting for broader use. Catalog readability does not prove write permission
+- Skill implication: check the exact method before acting, surface auth and rate limits for that method, and inspect service definitions before preparing a request
 - Verification needed: current endpoint behavior, create-request fields, test environment, duplicate semantics, and a safe permissioned test
 
 ### GovInfo MCP

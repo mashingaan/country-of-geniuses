@@ -12,9 +12,11 @@
 | `acknowledged` | The service provided a receipt or official reference | The reference is stored outside the public repository unless it is public |
 | `resolved` | The service reports completion or a public source shows a change | A follow-up check is performed |
 | `closed` | A person or reliable public evidence verifies the outcome | The public record contains a redacted outcome note |
-| `discarded` | The case is not actionable, current, safe, or sufficiently supported | The reason to stop is recorded |
+| `discarded` | The case is not actionable, current, safe, or sufficiently supported | A structured stop reason is recorded. A responsible service and action draft are optional |
 
 `resolved` does not automatically mean `closed`. A service may close a ticket without fixing the underlying problem.
+
+The schema follows this lifecycle. A `discarded` card can honestly stop before routing. A `resolved` card needs service or public-record evidence. A `closed` card needs participant or public-record verification.
 
 ## Proactive mode
 

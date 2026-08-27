@@ -1,2 +1,7 @@
 version: 0.1
-packs: []
+packs:
+  - id: us-boston
+    path: jurisdictions/us/boston
+    scope: City of Boston, Massachusetts, United States
+    status: tested-read
+    checked: 2026-08-27

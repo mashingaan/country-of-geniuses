@@ -1,0 +1,52 @@
+{
+  "id": "cog-boston-open311-101006740558",
+  "title": "Boston read-only run: an existing damaged-sign request is already open",
+  "summary": "A real public Open311 record was inspected in read-only mode. The existing request is still open, so this run stops as a duplicate and prepares no new submission.",
+  "status": "discarded",
+  "problem_type": "signage",
+  "jurisdiction": {
+    "country_code": "US",
+    "region": "Massachusetts",
+    "city": "Boston",
+    "location_label": "Public intersection in Roxbury",
+    "location_precision": "intersection"
+  },
+  "evidence": [
+    {
+      "source_url": "https://311.boston.gov/open311/v2/requests/101006740558.json",
+      "source_type": "official_record",
+      "requested_at": "2026-08-27T16:15:25Z",
+      "observed_at": "2026-08-27T16:16:06Z",
+      "accessed_at": "2026-08-27T16:36:32Z",
+      "supports": "The public Open311 record reports request 101006740558 as open under Damaged Sign. Address, coordinates, media, and token are omitted from this card.",
+      "reliability": 0.95
+    },
+    {
+      "source_url": "https://311.boston.gov/open311/v2/services.json",
+      "source_type": "official_service_page",
+      "accessed_at": "2026-08-27T16:36:32Z",
+      "supports": "The public service catalog maps the Damaged Sign category to the published sign-repair service code.",
+      "reliability": 0.95
+    }
+  ],
+  "stop_reason": {
+    "category": "duplicate",
+    "reason": "An existing public request covers the observed issue. Sending another request would add noise and is not prepared by this read-only run."
+  },
+  "privacy": {
+    "contains_personal_data": false,
+    "redaction_reviewed": true,
+    "redaction_notes": "The API response fields address, coordinates, media URL, description, and token were not copied into the public card."
+  },
+  "audit": {
+    "created_at": "2026-08-27T16:36:32Z",
+    "updated_at": "2026-08-27T16:36:32Z",
+    "checks": [
+      "Service catalog GET returned HTTP 200 with 10 categories",
+      "Request lookup GET returned HTTP 200",
+      "Existing API status was open",
+      "No write endpoint was called",
+      "Duplicate stop reason was recorded"
+    ]
+  }
+}

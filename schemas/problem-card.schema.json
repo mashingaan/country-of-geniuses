@@ -5,13 +5,13 @@
   "description": "A privacy-safe public record of civic problem investigation.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "title", "summary", "status", "jurisdiction", "evidence", "responsible_service", "action", "privacy", "audit"],
+  "required": ["id", "title", "summary", "status", "privacy", "audit"],
   "properties": {
     "id": {"type": "string", "pattern": "^cog-[a-z0-9-]+$"},
     "title": {"type": "string", "minLength": 1, "maxLength": 160},
     "summary": {"type": "string", "minLength": 1, "maxLength": 2000},
     "status": {"type": "string", "enum": ["signal", "candidate", "verified", "prepared", "submitted", "acknowledged", "resolved", "closed", "discarded"]},
-    "problem_type": {"type": "string", "enum": ["street_lighting", "roads", "waste", "water", "public_transport", "accessibility", "public_space", "service_access", "other"]},
+    "problem_type": {"type": "string", "enum": ["street_lighting", "signage", "roads", "waste", "water", "public_transport", "accessibility", "public_space", "service_access", "other"]},
     "jurisdiction": {
       "type": "object",
       "additionalProperties": false,
@@ -35,6 +35,7 @@
           "source_url": {"type": "string", "format": "uri"},
           "source_type": {"type": "string", "enum": ["official_record", "official_service_page", "public_report", "service_status", "news", "community_report", "direct_observation", "other"]},
           "published_at": {"type": "string", "format": "date-time"},
+          "requested_at": {"type": "string", "format": "date-time"},
           "observed_at": {"type": "string", "format": "date-time"},
           "accessed_at": {"type": "string", "format": "date-time"},
           "supports": {"type": "string", "minLength": 1, "maxLength": 500},
@@ -74,6 +75,15 @@
         "verified_at": {"type": "string", "format": "date-time"}
       }
     },
+    "stop_reason": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["category", "reason"],
+      "properties": {
+        "category": {"type": "string", "enum": ["insufficient_evidence", "stale", "duplicate", "unsafe", "no_route", "other"]},
+        "reason": {"type": "string", "minLength": 1, "maxLength": 800}
+      }
+    },
     "privacy": {
       "type": "object",
       "additionalProperties": false,
@@ -94,5 +104,70 @@
         "checks": {"type": "array", "items": {"type": "string", "maxLength": 240}}
       }
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": {
+        "required": ["status"],
+        "properties": {"status": {"enum": ["candidate", "verified", "prepared", "submitted", "acknowledged", "resolved", "closed"]}}
+      },
+      "then": {"required": ["jurisdiction", "evidence"]}
+    },
+    {
+      "if": {
+        "required": ["status"],
+        "properties": {"status": {"enum": ["verified", "prepared", "submitted", "acknowledged", "resolved", "closed"]}}
+      },
+      "then": {"required": ["responsible_service"]}
+    },
+    {
+      "if": {
+        "required": ["status"],
+        "properties": {"status": {"enum": ["prepared", "submitted", "acknowledged", "resolved", "closed"]}}
+      },
+      "then": {"required": ["action"]}
+    },
+    {
+      "if": {
+        "required": ["status"],
+        "properties": {"status": {"const": "discarded"}}
+      },
+      "then": {"required": ["stop_reason"]}
+    },
+    {
+      "if": {
+        "required": ["status"],
+        "properties": {"status": {"enum": ["resolved", "closed"]}}
+      },
+      "then": {"required": ["outcome"]}
+    },
+    {
+      "if": {
+        "required": ["status"],
+        "properties": {"status": {"const": "resolved"}}
+      },
+      "then": {
+        "properties": {
+          "outcome": {
+            "required": ["verified_by", "verified_at"],
+            "properties": {"verified_by": {"enum": ["service_status", "public_record"]}}
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": ["status"],
+        "properties": {"status": {"const": "closed"}}
+      },
+      "then": {
+        "properties": {
+          "outcome": {
+            "required": ["verified_by", "verified_at"],
+            "properties": {"verified_by": {"enum": ["participant", "public_record"]}}
+          }
+        }
+      }
+    }
+  ]
 }

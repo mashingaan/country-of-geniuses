@@ -17,7 +17,7 @@ Collect public URLs, source types, published or observed times, access times, an
 
 ## 3. Check currentness and duplicates
 
-Look for a newer observation, an existing public request, and a matching private request in the participant's local record. Cluster multiple signals into one candidate. A stale report, duplicate, or unsupported claim becomes `discarded` with a reason. Completion means the card states what was checked and what remains unknown.
+Look for a newer observation, an existing public request, and a matching private request in the participant's local record. Cluster multiple signals into one candidate. A stale report, duplicate, or unsupported claim becomes `discarded` with a structured stop reason. A discarded card may omit a responsible service and action draft. Completion means the card states what was checked and what remains unknown.
 
 ## 4. Route to a responsible service
 
@@ -50,5 +50,7 @@ Use `schemas/problem-card.schema.json`. The public artifact must contain:
 - A sourced responsible service
 - A human-reviewable action draft
 - A privacy assertion and audit checks
+
+For `discarded`, include `stop_reason` and keep routing and action fields optional. For `resolved`, require service or public-record verification. For `closed`, require participant or public-record verification.
 
 Use `examples/problem-card.example.json` as a shape reference. Keep private evidence and credentials in the participant's local environment.
