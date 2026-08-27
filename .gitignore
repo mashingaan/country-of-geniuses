@@ -1,0 +1,18 @@
+# Local agent state and credentials
+.env
+.env.*
+.secrets/
+.local/
+.private/
+
+# Runtime output
+tmp/
+artifacts/
+reports/
+*.log
+
+# Editor and operating system files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

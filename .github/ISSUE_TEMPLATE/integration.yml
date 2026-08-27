@@ -1,0 +1,38 @@
+name: Integration proposal
+description: Propose a public API, MCP server, or service adapter
+title: "[Integration] "
+labels:
+  - integration
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe one integration and its evidence boundary. Do not include credentials or private case data.
+  - type: input
+    id: service
+    attributes:
+      label: Service or API
+      placeholder: Official service name
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Official sources
+      description: Link documentation, terms, and endpoint references.
+    validations:
+      required: true
+  - type: textarea
+    id: capabilities
+    attributes:
+      label: Capabilities
+      description: Separate read, write, and status capabilities.
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Safety boundary
+      description: Explain authentication, approval, rate limits, duplicate handling, and failure behavior.
+    validations:
+      required: true

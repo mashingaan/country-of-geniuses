@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mashingaan/country-of-geniuses/blob/main/schemas/problem-card.schema.json",
+  "title": "Country of Geniuses problem card",
+  "description": "A privacy-safe public record of civic problem investigation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "summary", "status", "jurisdiction", "evidence", "responsible_service", "action", "privacy", "audit"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^cog-[a-z0-9-]+$"},
+    "title": {"type": "string", "minLength": 1, "maxLength": 160},
+    "summary": {"type": "string", "minLength": 1, "maxLength": 2000},
+    "status": {"type": "string", "enum": ["signal", "candidate", "verified", "prepared", "submitted", "acknowledged", "resolved", "closed", "discarded"]},
+    "problem_type": {"type": "string", "enum": ["street_lighting", "roads", "waste", "water", "public_transport", "accessibility", "public_space", "service_access", "other"]},
+    "jurisdiction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["country_code", "city"],
+      "properties": {
+        "country_code": {"type": "string", "pattern": "^[A-Z]{2}$"},
+        "region": {"type": "string", "maxLength": 120},
+        "city": {"type": "string", "minLength": 1, "maxLength": 120},
+        "location_label": {"type": "string", "maxLength": 240},
+        "location_precision": {"type": "string", "enum": ["city", "district", "street", "intersection", "public_facility"]}
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_url", "source_type", "accessed_at", "supports"],
+        "properties": {
+          "source_url": {"type": "string", "format": "uri"},
+          "source_type": {"type": "string", "enum": ["official_record", "official_service_page", "public_report", "service_status", "news", "community_report", "direct_observation", "other"]},
+          "published_at": {"type": "string", "format": "date-time"},
+          "observed_at": {"type": "string", "format": "date-time"},
+          "accessed_at": {"type": "string", "format": "date-time"},
+          "supports": {"type": "string", "minLength": 1, "maxLength": 500},
+          "reliability": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+      }
+    },
+    "responsible_service": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "basis", "confidence"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1, "maxLength": 200},
+        "basis": {"type": "string", "minLength": 1, "maxLength": 800},
+        "official_url": {"type": "string", "format": "uri"},
+        "contact_method": {"type": "string", "maxLength": 120},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requested_action", "draft", "human_confirmation_required"],
+      "properties": {
+        "requested_action": {"type": "string", "minLength": 1, "maxLength": 400},
+        "draft": {"type": "string", "minLength": 1, "maxLength": 4000},
+        "channel": {"type": "string", "maxLength": 120},
+        "human_confirmation_required": {"const": true}
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "public_note": {"type": "string", "maxLength": 1200},
+        "verified_by": {"type": "string", "enum": ["service_status", "public_record", "participant", "not_verified"]},
+        "verified_at": {"type": "string", "format": "date-time"}
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contains_personal_data", "redaction_reviewed"],
+      "properties": {
+        "contains_personal_data": {"const": false},
+        "redaction_reviewed": {"const": true},
+        "redaction_notes": {"type": "string", "maxLength": 500}
+      }
+    },
+    "audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["created_at", "updated_at", "checks"],
+      "properties": {
+        "created_at": {"type": "string", "format": "date-time"},
+        "updated_at": {"type": "string", "format": "date-time"},
+        "checks": {"type": "array", "items": {"type": "string", "maxLength": 240}}
+      }
+    }
+  }
+}

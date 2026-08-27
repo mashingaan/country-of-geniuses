@@ -1,0 +1,58 @@
+{
+  "id": "cog-demo-northbridge-lighting",
+  "title": "Fictional example: street lighting reported out near a public path",
+  "summary": "A fictional case showing how several public signals can be grouped into one privacy-safe card. Northbridge is not a real case and no submission was made.",
+  "status": "prepared",
+  "problem_type": "street_lighting",
+  "jurisdiction": {
+    "country_code": "XX",
+    "city": "Northbridge",
+    "location_label": "Riverside public path near the library",
+    "location_precision": "public_facility"
+  },
+  "evidence": [
+    {
+      "source_url": "https://example.org/civic-report/northbridge-lighting",
+      "source_type": "public_report",
+      "published_at": "2026-08-20T09:00:00Z",
+      "observed_at": "2026-08-26T19:30:00Z",
+      "accessed_at": "2026-08-27T09:00:00Z",
+      "supports": "A public report describes a dark section of the path and gives a recent observation time.",
+      "reliability": 0.7
+    },
+    {
+      "source_url": "https://example.org/northbridge/public-lighting-service",
+      "source_type": "official_service_page",
+      "accessed_at": "2026-08-27T09:05:00Z",
+      "supports": "The public lighting service page identifies the responsible service and its published contact route.",
+      "reliability": 0.9
+    }
+  ],
+  "responsible_service": {
+    "name": "Northbridge Public Lighting Service",
+    "basis": "The fictional official service page maps public path lighting reports to this service.",
+    "official_url": "https://example.org/northbridge/public-lighting-service",
+    "contact_method": "public web form",
+    "confidence": 0.9
+  },
+  "action": {
+    "requested_action": "Inspect the affected public path lighting and repair or schedule repair if a fault is confirmed.",
+    "draft": "This is a fictional draft for demonstration. Please inspect the reported dark section of the Riverside public path near the library. The evidence and observation time are listed in the attached local record. Please provide a public reference number if a request is registered.",
+    "channel": "public web form",
+    "human_confirmation_required": true
+  },
+  "privacy": {
+    "contains_personal_data": false,
+    "redaction_reviewed": true,
+    "redaction_notes": "Fictional location and sources. No resident details or private address are included."
+  },
+  "audit": {
+    "created_at": "2026-08-27T09:10:00Z",
+    "updated_at": "2026-08-27T09:10:00Z",
+    "checks": [
+      "Example is explicitly fictional",
+      "Sources are placeholders and were not contacted",
+      "Duplicate search is represented in the local workflow, not claimed as completed here"
+    ]
+  }
+}

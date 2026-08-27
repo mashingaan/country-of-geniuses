@@ -1,0 +1,31 @@
+name: Jurisdiction pack
+description: Add or correct local public-service context
+title: "[Jurisdiction] "
+labels:
+  - jurisdiction
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share public sources and local routing knowledge. Do not include private case data.
+  - type: input
+    id: scope
+    attributes:
+      label: Geographic scope
+      placeholder: Country, region, city, or service area
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Public sources
+      description: Link official directories, service pages, and terms.
+    validations:
+      required: true
+  - type: textarea
+    id: limitations
+    attributes:
+      label: Limitations and recheck date
+      description: Include language, authentication, access, and known failure modes.
+    validations:
+      required: true
