@@ -50,9 +50,9 @@ Start with the [Civic signal issue form](https://github.com/mashingaan/country-o
 
 ## Current status
 
-This is the first working increment. It contains the harness model, reusable civic triage and Open311 read-only discovery skills, a problem-card schema, contribution rules, safety boundaries, one dated Boston read-only pack, and one audited San Francisco accessibility run.
+This is the first working increment. It contains the harness model, reusable civic triage, Open311 read-only discovery, and Russian public-service routing skills, a problem-card schema, contribution rules, safety boundaries, one dated Boston read-only pack, and one audited San Francisco accessibility run.
 
-The integration registry contains one method-scoped `tested-read` profile for Boston Open311. The Boston and San Francisco packs document read-only evidence and make no write claim. The [San Francisco run](examples/san-francisco-muni-elevator.json) demonstrates why ownership and active project context must be checked before a draft is prepared. It records a real routing error and stops without sending or preparing a duplicate repair request. No government endpoint is presented as live for submission. Start with the [agent runbook](docs/agent-runbook.md) for a reproducible local run. The next milestone is a narrow, non-emergency pilot with a human approving every external action.
+The integration registry contains one method-scoped `tested-read` profile for Boston Open311. The Boston and San Francisco packs document read-only evidence and make no write claim. The Russian pack is a `draft` federal overlay because local methods and account-gated routes still need region-specific verification. The [San Francisco run](examples/san-francisco-muni-elevator.json) demonstrates why ownership and active project context must be checked before a draft is prepared. It records a real routing error and stops without sending or preparing a duplicate repair request. No government endpoint is presented as live for submission. Start with the [agent runbook](docs/agent-runbook.md) for a reproducible local run.
 
 ## Quick start
 
@@ -63,6 +63,8 @@ The integration registry contains one method-scoped `tested-read` profile for Bo
 5. Keep private evidence, credentials, and drafts outside this repository.
 
 For the exact prompt and a tested Boston read-only path, use the [agent runbook](docs/agent-runbook.md). For a new jurisdiction, start with `jurisdictions/README.md`. For a connector or MCP server, start with `integrations/README.md`.
+
+For a Russian Federation investigation, load the [Russian public-service routing skill](skills/russian-public-service-routing/SKILL.md) and treat the [Russia routing overlay](jurisdictions/ru/README.md) as draft until a region-specific method is rechecked.
 
 ## Validate
 
