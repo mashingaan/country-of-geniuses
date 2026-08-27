@@ -12,8 +12,10 @@ Primary language: English. SFMTA pages expose additional language options and SF
 
 - [SFMTA Muni Metro Elevator Status](https://www.sfmta.com/travel-updates/muni-metro-elevator-status)
 - [SFMTA live elevator status endpoint](https://www.sfmta.com/elevator-status/elevatorstatus.php?src=prod)
+- [SFMTA accessibility strategy: reliable elevators and escalators](https://www.sfmta.com/accessibility-strategy-needs-assessment-2024/muni-capital-projects/32-reliable-elevators-and-escalators)
 - [SFMTA contact page](https://www.sfmta.com/contact-us)
 - [SFMTA Muni Feedback](https://www.sfmta.com/getting-around/muni/muni-feedback)
+- [Public Works Hallidie Plaza Accessibility Improvements](https://sfpublicworks.org/HallidiePlaza)
 - [SF 311 cases dataset](https://data.sfgov.org/City-Infrastructure/311-Cases/vw6y-z8j6/about_data)
 - [SF 311 Socrata API](https://data.sfgov.org/resource/vw6y-z8j6.json)
 
@@ -22,15 +24,16 @@ Primary language: English. SFMTA pages expose additional language options and SF
 | Capability | Method | Evidence from this pack |
 | --- | --- | --- |
 | Elevator status discovery | `GET` SFMTA status page and embedded endpoint | HTTP 200 and current station-by-station status were observed on 2026-08-27 |
-| Service routing | Read SFMTA contact and Muni Feedback pages | Both pages identify SFMTA Muni feedback and 311 as public contact routes |
+| Service routing | Read SFMTA accessibility strategy and Public Works project page | SFMTA places the non-functional Hallidie Plaza elevator in DPW jurisdiction and Public Works owns the active accessibility project |
 | Duplicate search | `GET` SF 311 Socrata API | A bounded query for elevator cases at Powell or Hallidie returned zero rows for the selected recent window |
 | Submit Muni report | Not tested | No write capability is claimed |
 
 ## Routing rules
 
-- An out-of-service Muni elevator belongs to SFMTA Muni service and accessibility handling.
-- The status page tells users in a station to notify the nearest Station Agent. It also directs people outside a station to 311.
-- The SFMTA contact page publishes the Muni Feedback form and the city 311 phone route. The exact channel should remain visible in the action draft.
+- The SFMTA status page is a discovery source, not an ownership proof.
+- Before routing a Hallidie Plaza elevator signal, read the SFMTA accessibility strategy. It states that the non-functional elevator is in DPW jurisdiction.
+- The Public Works project page says the elevator is decommissioned and covered by permanent removal and accessible ramp construction.
+- A new repair request to SFMTA is not the default action for this asset. If a participant wants an update, treat the existing Public Works project page as the starting route and prepare a separate project-status question only after a fresh review.
 
 ## Duplicate and freshness rules
 
@@ -39,6 +42,7 @@ Primary language: English. SFMTA pages expose additional language options and SF
 - Preserve older closed matches as context rather than treating them as an active duplicate.
 - The status feed includes a page-valid timestamp and a per-elevator `Last Changed` value. Do not interpret an old `Last Changed` value as proof that the outage began on that date.
 - The station summary may still say `Accessible` when one elevator is out of service because alternate elevators remain available.
+- Check public capital, accessibility, construction, and maintenance project pages before treating a zero 311 result as an unowned problem.
 
 ## Authentication and approval
 

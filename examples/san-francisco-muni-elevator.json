@@ -1,8 +1,8 @@
 {
   "id": "cog-san-francisco-powell-hallidie-elevator",
-  "title": "Powell Station Hallidie Plaza street elevator is listed out of service",
-  "summary": "SFMTA's current elevator status feed listed the Hallidie Plaza street elevator at Powell Station as out of service on 2026-08-27. A bounded public SF 311 search found no matching elevator case at Powell or Hallidie opened in the preceding 90 days. Older closed matches exist, so the prepared action first asks SFMTA to confirm whether an active maintenance case already exists.",
-  "status": "prepared",
+  "title": "Routing correction: Hallidie Plaza elevator is covered by a Public Works project",
+  "summary": "SFMTA's current elevator status feed listed the Hallidie Plaza street elevator at Powell Station as out of service on 2026-08-27. A later ownership and project check found that SFMTA itself places the non-functional elevator in DPW jurisdiction and that Public Works already has an accessibility project for permanent removal and replacement ramps. This card is discarded as a new repair candidate and preserves the routing error.",
+  "status": "discarded",
   "problem_type": "accessibility",
   "jurisdiction": {
     "country_code": "US",
@@ -28,11 +28,19 @@
       "reliability": 0.9
     },
     {
-      "source_url": "https://www.sfmta.com/contact-us",
+      "source_url": "https://www.sfmta.com/accessibility-strategy-needs-assessment-2024/muni-capital-projects/32-reliable-elevators-and-escalators",
       "source_type": "official_service_page",
-      "accessed_at": "2026-08-27T17:02:41Z",
-      "supports": "The official SFMTA contact page lists the Muni Feedback form and 311 as public routes for Muni service concerns.",
-      "reliability": 0.9
+      "source_updated_at": "2026-04-11T03:13:50Z",
+      "accessed_at": "2026-08-27T17:19:29Z",
+      "supports": "SFMTA's accessibility strategy says the Hallidie Plaza elevator between Market Street and the concourse is not functional and is in DPW jurisdiction.",
+      "reliability": 0.98
+    },
+    {
+      "source_url": "https://sfpublicworks.org/HallidiePlaza",
+      "source_type": "official_service_page",
+      "accessed_at": "2026-08-27T17:19:29Z",
+      "supports": "The official Public Works project page says the decommissioned Market Street elevator will be permanently removed and replaced by accessible ramps. It gives a construction timeline of Summer 2027 through Spring 2028 and names San Francisco Public Works on the project team.",
+      "reliability": 0.98
     },
     {
       "source_url": "https://data.sfgov.org/resource/vw6y-z8j6.json?%24select=count%28%2A%29%20as%20count&%24where=service_name%3D%27Muni%20Service%20Feedback%27%20and%20service_details%3D%27elevators_escalators%27%20and%20requested_datetime%20%3E%3D%20%272026-05-29T00%3A00%3A00%27%20and%20%28upper%28address%29%20like%20%27%25POWELL%25%27%20or%20upper%28address%29%20like%20%27%25HALLIDIE%25%27%29",
@@ -51,17 +59,15 @@
     }
   ],
   "responsible_service": {
-    "name": "San Francisco Municipal Transportation Agency Muni service",
-    "basis": "SFMTA owns the official Muni Metro elevator status page and its contact guidance routes out-of-service elevator reports to a Station Agent, 311, or Muni Feedback.",
-    "official_url": "https://www.sfmta.com/getting-around/muni/muni-feedback",
-    "contact_method": "SFMTA Muni Feedback form",
-    "confidence": 0.93
+    "name": "San Francisco Public Works Hallidie Plaza Accessibility Improvements project",
+    "basis": "SFMTA's accessibility strategy explicitly places the non-functional Hallidie Plaza elevator in DPW jurisdiction. The official Public Works project page covers permanent removal of the decommissioned elevator and construction of accessible ramps.",
+    "official_url": "https://sfpublicworks.org/HallidiePlaza",
+    "contact_method": "Existing Public Works project page",
+    "confidence": 0.98
   },
-  "action": {
-    "requested_action": "Confirm the maintenance state and restore the Powell Station Hallidie Plaza street elevator if no active case exists.",
-    "draft": "Hello. SFMTA's live elevator status feed, checked on August 27, 2026, lists Powell Station's Hallidie Plaza street elevator as Out of service, with Last Changed shown as January 16, 2020. Could you please confirm whether an active maintenance case already exists for this specific elevator? If no active case exists, please open a maintenance request for the current out-of-service condition and provide the public case reference and expected restoration date if available. A public SF 311 search found no matching Muni elevator case at Powell or Hallidie opened in the preceding 90 days, although older closed matches exist. If the source timestamp is stale, please correct the public elevator status page. This is a non-emergency accessibility and maintenance report.",
-    "channel": "SFMTA Muni Feedback form",
-    "human_confirmation_required": true
+  "stop_reason": {
+    "category": "other",
+    "reason": "The underlying accessibility problem is covered by an existing Public Works project. The elevator is described as decommissioned and scheduled for permanent removal with replacement ramps, so a new repair request to SFMTA would be misrouted and duplicative. This run records the routing error and prepares no external action."
   },
   "privacy": {
     "contains_personal_data": false,
@@ -70,16 +76,18 @@
   },
   "audit": {
     "created_at": "2026-08-27T17:02:41Z",
-    "updated_at": "2026-08-27T17:06:24Z",
+    "updated_at": "2026-08-27T17:19:29Z",
     "checks": [
       "Official SFMTA live status endpoint returned HTTP 200",
       "The status feed was valid as of 2026-08-27 09:58 AM Pacific time",
       "Hallidie Plaza street elevator was listed Out of service",
       "The bounded public SF 311 duplicate query returned count 0",
       "Historical matching public records were closed and retained as context",
-      "SFMTA Muni Feedback was selected from official routing guidance",
-      "No write endpoint or feedback form was called",
-      "The action draft requires explicit human confirmation"
+      "SFMTA's accessibility strategy placed the non-functional elevator in DPW jurisdiction",
+      "Public Works project coverage and decommissioned status were checked",
+      "The previous SFMTA routing was recorded as an error",
+      "The card was stopped without preparing an external action",
+      "No write endpoint or feedback form was called"
     ]
   }
 }

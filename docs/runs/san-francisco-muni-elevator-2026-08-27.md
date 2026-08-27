@@ -1,10 +1,10 @@
-# San Francisco Muni elevator prepared run
+# San Francisco Hallidie Plaza routing correction run
 
 Date: 2026-08-27
 
 ## Objective
 
-Find one current non-emergency accessibility problem without a matching current public SF 311 request, identify the responsible service, and prepare an exact draft for human review. No external submission is part of this run.
+Find one current non-emergency accessibility problem, check for a matching public request, verify the owning agency and active project context, and stop if a new action would duplicate or misroute existing work. No external submission is part of this run.
 
 ## Signal and currentness
 
@@ -20,20 +20,17 @@ The same query without the recent date filter returned five historical Powell-re
 
 The check means `no matching current public 311 case found in the selected window`. It does not prove that no internal SFMTA maintenance case exists, that the public dataset has zero delay, or that a new report will be accepted.
 
-## Routing
+## Routing correction
 
-SFMTA Muni is the proposed recipient. The official elevator status page says to notify the nearest Station Agent or call 311 when an elevator is out of service. The SFMTA contact page lists the Muni Feedback form for Muni service concerns. The selected draft channel is the Muni Feedback form, with 311 as the fallback if the form cannot handle the report.
+The initial route to SFMTA Muni was incorrect for this asset. SFMTA's accessibility strategy explicitly says that the Hallidie Plaza elevator between Market Street and the concourse is not functional and is in DPW jurisdiction. The official Public Works project page says the elevator is decommissioned and will be permanently removed as part of an accessibility project with new ramps. Construction is listed for Summer 2027 through Spring 2028.
 
-## Prepared action
+The live SFMTA status page was useful for discovering the condition, but it did not establish ownership. The public SF 311 zero-result query was also insufficient because the condition is already represented by a capital accessibility project rather than a new maintenance request.
 
-The exact draft is stored in `examples/san-francisco-muni-elevator.json`. It asks the service to:
+## Disposition
 
-1. Confirm whether an active maintenance case already exists for the specific elevator.
-2. If no active case exists, open a maintenance request for the current out-of-service condition.
-3. Provide the public case reference and expected restoration date if available.
-4. Correct the public status page if its current state is stale.
+The card is now `discarded` as a new repair candidate. It preserves the official status evidence, the earlier bounded duplicate check, the corrected Public Works route, and the reason no SFMTA draft should be sent.
 
-The draft does not include a person's name, contact details, exact private address, photo, token, or historical case identifier. It requires explicit human confirmation and was not submitted.
+The card does not include a person's name, contact details, exact private address, photo, token, or historical case identifier. No action draft is stored because the next useful action would be a separately scoped project-status inquiry, not a repair request.
 
 ## No-write boundary
 

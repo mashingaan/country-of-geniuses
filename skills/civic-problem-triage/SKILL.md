@@ -23,6 +23,8 @@ Look for a newer observation, an existing public request, and a matching private
 
 Use an official directory, service page, or locally verified jurisdiction pack. Record the service name, routing basis, contact method, and confidence. Treat undocumented or contradictory routing as a stop condition. Completion means the proposed recipient is supported by a source and the confidence is visible.
 
+Before preparing an action, check the asset's owning agency, decommissioned status, and active capital, accessibility, construction, or maintenance projects. A live status page does not establish ownership or justify a new request. Completion means ownership and project context are recorded or the action is stopped.
+
 ## 5. Assess safety and privacy
 
 Remove names, contact details, exact private addresses, credentials, identifying media, and private correspondence from the public artifact. Escalate urgent danger and pause for human help for medical, legal, law-enforcement, electoral, immigration, vulnerable-person, or identifiable-person cases. Completion means the public card passes the privacy boundary and no high-risk branch is hidden.

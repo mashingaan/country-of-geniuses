@@ -49,9 +49,9 @@ Start with the [Civic signal issue form](https://github.com/mashingaan/country-o
 
 ## Current status
 
-This is the first foundation increment. It contains the harness model, one reusable civic triage skill, a problem-card schema, contribution rules, safety boundaries, one dated Boston read-only pack, and one prepared San Francisco accessibility case.
+This is the first foundation increment. It contains the harness model, one reusable civic triage skill, a problem-card schema, contribution rules, safety boundaries, one dated Boston read-only pack, and one audited San Francisco accessibility run.
 
-The integration registry remains empty by design. The Boston and San Francisco packs document read-only evidence and make no write claim. The [San Francisco case](examples/san-francisco-muni-elevator.json) demonstrates a current public problem, a bounded no-duplicate check, correct routing, and a draft that still needs human confirmation. No government endpoint is presented as live for submission until a contributor documents and verifies it. The next milestone is a narrow, non-emergency pilot with a human approving every external action.
+The integration registry remains empty by design. The Boston and San Francisco packs document read-only evidence and make no write claim. The [San Francisco run](examples/san-francisco-muni-elevator.json) demonstrates why ownership and active project context must be checked before a draft is prepared. It records a real routing error and stops without sending or preparing a duplicate repair request. No government endpoint is presented as live for submission until a contributor documents and verifies it. The next milestone is a narrow, non-emergency pilot with a human approving every external action.
 
 ## Quick start
 
