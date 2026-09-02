@@ -8,6 +8,8 @@ Open-source agent harness for civic problem discovery and responsible work with 
 
 > Give an agent a territory, a problem area, and this repository. It gains reusable skills, local context, integration knowledge, and a safe way to turn findings into human-reviewed action.
 
+For an agent-readable project map, start with [llms.txt](llms.txt). It gives a compact purpose statement and links to the relevant instructions without loading the whole repository.
+
 ## The idea
 
 People often stop before contacting a public service because the responsible organization, required evidence, language, or submission path is unclear. Country of Geniuses collects the reusable knowledge that helps an agent cross that gap.

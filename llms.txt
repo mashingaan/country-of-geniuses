@@ -1,0 +1,23 @@
+# Country of Geniuses
+
+> Open-source civic skills for AI agents. Investigate public-service problems, identify responsible authorities, and prepare evidence-based requests for human approval.
+
+Use for a bounded proactive investigation or a person's public-service problem. Start with the triage skill. Load other references only when needed. Keep private data and credentials outside the public repository.
+
+This project supplies instructions and source knowledge, not a hosted MCP server or an automatic installation. Government affiliation and write access are not implied. Confirm the exact action with the participant before submission or publication.
+
+## Start
+
+- [Civic triage skill](skills/civic-problem-triage/SKILL.md): Investigation steps, source selection, and stop conditions.
+- [README](README.md): Usage example and current verification limits.
+
+## Context on demand
+
+- [Jurisdiction index](jurisdictions/registry.yaml): Find the relevant location and open only its pack. Verify the specific asset's responsible authority, operating status, and existing projects before drafting.
+- [Trust and safety](docs/trust-and-safety.md): Privacy, approvals, and high-risk cases.
+- [Problem-card schema](schemas/problem-card.schema.json): Use when saving or handing off a case.
+
+## Optional
+
+- [Integration guidance](integrations/README.md): Document an API or MCP with its verification boundary.
+- [Contributing](CONTRIBUTING.md): Share a source, correction, skill, or checked outcome.
