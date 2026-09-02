@@ -39,6 +39,7 @@ Start with the [Civic signal issue form](https://github.com/mashingaan/country-o
 | --- | --- |
 | `skills/` | Agent skills that define investigation steps and stop conditions |
 | `schemas/` | Machine-readable, privacy-safe public artifacts |
+| `schemas/civic-signal*.schema.json` | Structured civic signal and response contracts |
 | `examples/` | Fictional examples for agents and contributors |
 | `jurisdictions/` | Country and city context packs |
 | `integrations/` | API and MCP knowledge, contracts, and verification status |
@@ -50,7 +51,7 @@ Start with the [Civic signal issue form](https://github.com/mashingaan/country-o
 
 ## Current status
 
-This is the first working increment. It contains the harness model, reusable civic triage, Open311 read-only discovery, and Russian public-service routing skills, a problem-card schema, contribution rules, safety boundaries, one dated Boston read-only pack, and one audited San Francisco accessibility run.
+This is the first working increment. It contains the harness model, reusable civic triage, Open311 read-only discovery, and Russian public-service routing skills, a problem-card schema, a draft Civic Signal Protocol, contribution rules, safety boundaries, one dated Boston read-only pack, and one audited San Francisco accessibility run.
 
 The integration registry contains one method-scoped `tested-read` profile for Boston Open311. The Boston and San Francisco packs document read-only evidence and make no write claim. The Russian pack is a `draft` federal overlay because local methods and account-gated routes still need region-specific verification. The [San Francisco run](examples/san-francisco-muni-elevator.json) demonstrates why ownership and active project context must be checked before a draft is prepared. It records a real routing error and stops without sending or preparing a duplicate repair request. No government endpoint is presented as live for submission. Start with the [agent runbook](docs/agent-runbook.md) for a reproducible local run.
 
@@ -64,11 +65,13 @@ The integration registry contains one method-scoped `tested-read` profile for Bo
 
 For the exact prompt and a tested Boston read-only path, use the [agent runbook](docs/agent-runbook.md). For a new jurisdiction, start with `jurisdictions/README.md`. For a connector or MCP server, start with `integrations/README.md`.
 
+For the future cross-system handoff contract, see the [Civic Signal Protocol](docs/civic-signal-protocol.md). It is a draft envelope for human-approved signals, not a government integration.
+
 For a Russian Federation investigation, load the [Russian public-service routing skill](skills/russian-public-service-routing/SKILL.md) and treat the [Russia routing overlay](jurisdictions/ru/README.md) as draft until a region-specific method is rechecked.
 
 ## Validate
 
-Install the development dependency once with `python -m pip install -r requirements-dev.txt`, then run `python scripts/validate-repo.py` or `powershell -ExecutionPolicy Bypass -File scripts/validate-repo.ps1`. The check validates all public examples against the full JSON Schema and runs negative regression cases for invalid statuses, empty evidence, missing jurisdiction, discarded cards without a stop reason, and unverified closed outcomes.
+Install the development dependency once with `python -m pip install -r requirements-dev.txt`, then run `python scripts/validate-repo.py` or `powershell -ExecutionPolicy Bypass -File scripts/validate-repo.ps1`. The check validates all public examples against the full JSON Schema and runs negative regression cases for invalid statuses, empty evidence, missing jurisdiction, discarded cards without a stop reason, unverified closed outcomes, and unconfirmed civic submissions.
 
 ## Trust model
 

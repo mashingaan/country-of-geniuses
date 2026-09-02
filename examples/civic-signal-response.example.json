@@ -1,0 +1,18 @@
+{
+  "protocol": "cog-civic-signal",
+  "version": "0.1",
+  "message_type": "needs_evidence",
+  "response_id": "cog-response-demo-northbridge-lighting-001",
+  "signal_id": "cog-signal-demo-northbridge-lighting",
+  "responded_at": "2026-09-02T12:00:00Z",
+  "status": "needs_evidence",
+  "reason": "Fictional response. The receiving service needs a public facility identifier before it can route the signal.",
+  "requested_evidence": [
+    {
+      "field": "public_facility_identifier",
+      "reason": "The fictional service directory has more than one path with a similar name.",
+      "required": true
+    }
+  ],
+  "next_steps": ["Return the request to the participant for review", "Do not resend until the additional evidence is checked"]
+}

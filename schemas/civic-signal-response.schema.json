@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mashingaan/country-of-geniuses/blob/main/schemas/civic-signal-response.schema.json",
+  "title": "Country of Geniuses Civic Signal Protocol response",
+  "description": "A structured response from a government agent or official service adapter.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol", "version", "message_type", "response_id", "signal_id", "responded_at", "status"],
+  "properties": {
+    "protocol": {"const": "cog-civic-signal"},
+    "version": {"const": "0.1"},
+    "message_type": {"type": "string", "enum": ["accepted", "duplicate", "needs_evidence", "rejected", "status"]},
+    "response_id": {"type": "string", "pattern": "^cog-response-[a-z0-9-]+$"},
+    "signal_id": {"type": "string", "pattern": "^cog-signal-[a-z0-9-]+$"},
+    "responded_at": {"type": "string", "format": "date-time"},
+    "status": {"type": "string", "enum": ["accepted", "duplicate", "needs_evidence", "rejected", "received", "in_progress", "resolved", "closed"]},
+    "receipt_id": {"type": "string", "pattern": "^cog-receipt-[a-z0-9-]+$"},
+    "status_url": {"type": "string", "format": "uri"},
+    "reason": {"type": "string", "maxLength": 1200},
+    "requested_evidence": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["field", "reason", "required"],
+        "properties": {
+          "field": {"type": "string", "minLength": 1, "maxLength": 160},
+          "reason": {"type": "string", "minLength": 1, "maxLength": 500},
+          "required": {"type": "boolean"}
+        }
+      }
+    },
+    "duplicate_reference": {"type": "string", "maxLength": 240},
+    "status_detail": {"type": "string", "maxLength": 1200},
+    "next_steps": {"type": "array", "items": {"type": "string", "maxLength": 400}}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"message_type": {"const": "accepted"}}},
+      "then": {
+        "required": ["receipt_id", "status"],
+        "properties": {"status": {"const": "accepted"}}
+      }
+    },
+    {
+      "if": {"properties": {"message_type": {"const": "needs_evidence"}}},
+      "then": {
+        "required": ["reason", "requested_evidence"],
+        "properties": {"status": {"const": "needs_evidence"}}
+      }
+    },
+    {
+      "if": {"properties": {"message_type": {"const": "rejected"}}},
+      "then": {
+        "required": ["reason"],
+        "properties": {"status": {"const": "rejected"}}
+      }
+    },
+    {
+      "if": {"properties": {"message_type": {"const": "duplicate"}}},
+      "then": {
+        "required": ["reason"],
+        "properties": {"status": {"const": "duplicate"}}
+      }
+    },
+    {
+      "if": {"properties": {"message_type": {"const": "status"}}},
+      "then": {"required": ["status_detail"]}
+    }
+  ]
+}

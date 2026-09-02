@@ -1,0 +1,80 @@
+{
+  "protocol": "cog-civic-signal",
+  "version": "0.1",
+  "message_type": "signal_preview",
+  "signal_id": "cog-signal-demo-northbridge-lighting",
+  "created_at": "2026-09-02T09:00:00Z",
+  "jurisdiction": {
+    "country_code": "RU",
+    "region": "Example Region",
+    "city": "Northbridge",
+    "location_label": "Riverside public path near the library",
+    "location_precision": "public_facility"
+  },
+  "problem": {
+    "problem_type": "street_lighting",
+    "summary": "Fictional example: a public path appears to have a dark section near the library.",
+    "asset_label": "Riverside public path lighting",
+    "observed_at": "2026-09-01T19:30:00Z"
+  },
+  "evidence": [
+    {
+      "source_url": "https://example.org/civic/northbridge-lighting",
+      "source_type": "public_report",
+      "published_at": "2026-09-01T20:00:00Z",
+      "observed_at": "2026-09-01T19:30:00Z",
+      "accessed_at": "2026-09-02T08:30:00Z",
+      "supports": "A fictional public report describes a dark section of the path and gives a recent observation time.",
+      "reliability": 0.7
+    },
+    {
+      "source_url": "https://example.org/northbridge/public-lighting-service",
+      "source_type": "official_service_page",
+      "accessed_at": "2026-09-02T08:35:00Z",
+      "supports": "A fictional official service page maps public path lighting reports to the municipal lighting service.",
+      "reliability": 0.9
+    }
+  ],
+  "routing": {
+    "service_name": "Northbridge Municipal Lighting Service",
+    "basis": "The fictional official service page maps public path lighting reports to this service.",
+    "official_url": "https://example.org/northbridge/public-lighting-service",
+    "contact_method": "official municipal web form",
+    "confidence": 0.9
+  },
+  "duplicate_check": {
+    "checked_at": "2026-09-02T08:40:00Z",
+    "scope": "Fictional public issue history for the path during 2026-08-25 through 2026-09-02",
+    "result": "no_match_found"
+  },
+  "project_check": {
+    "checked_at": "2026-09-02T08:42:00Z",
+    "scope": "Fictional official capital, construction, accessibility, and maintenance project pages",
+    "result": "no_active_project"
+  },
+  "confidence": {
+    "overall": 0.86,
+    "basis": "The fictional report is recent and the fictional official service page supports the route. No matching public request or active project was found in the bounded check."
+  },
+  "proposed_action": {
+    "requested_action": "Inspect the affected public path lighting and repair or schedule repair if a fault is confirmed.",
+    "draft": "This is a fictional preview. Please inspect the reported dark section of the Riverside public path near the library. The observation time and public evidence are listed in the signal packet. Please provide a reference number if a request is registered.",
+    "channel": "official municipal web form"
+  },
+  "privacy": {
+    "contains_personal_data": false,
+    "redaction_reviewed": true,
+    "data_to_share": ["fictional public facility label", "general location", "public evidence URLs"],
+    "participant_controlled_fields": ["contact details", "exact address if required", "private photos"]
+  },
+  "human_confirmation": {
+    "required": true,
+    "confirmed": false,
+    "fields_reviewed": ["recipient", "content", "evidence", "data_disclosure", "duplicate_risk"]
+  },
+  "tracking": {
+    "client_signal_id": "cog-signal-demo-northbridge-lighting",
+    "idempotency_key": "cog-idem-demo-northbridge-lighting-2026-09-02",
+    "requested_receipt": true
+  }
+}

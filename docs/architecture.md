@@ -24,9 +24,13 @@ The problem card is the shared unit of work. It joins a signal, evidence, curren
 
 The repository can help an agent prepare an action. The participant remains the decision maker for external submission until a narrowly scoped automation has been separately reviewed and enabled.
 
+### 6. Civic Signal Protocol
+
+The protocol is a separate machine-readable handoff envelope for a future government agent or official service adapter. It keeps the problem card as the public investigation record while adding an idempotency key, explicit recipient, human approval state, receipt, and structured response statuses. It is transport agnostic, so MCP, HTTPS, a queue, or a participant-controlled form can act as an adapter without becoming the protocol itself. See [`docs/civic-signal-protocol.md`](civic-signal-protocol.md).
+
 ## Data flow
 
-`public signal -> local evidence set -> problem card -> service routing -> human-reviewed draft -> external channel -> public redacted outcome`
+`public signal -> local evidence set -> problem card -> service routing -> signal preview -> human confirmation -> external channel -> receipt -> public redacted outcome`
 
 The repository does not need to receive all source data or operate a central database to provide value. Its durable assets are tested procedures, source provenance, local service knowledge, and lessons from completed work.
 

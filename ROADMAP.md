@@ -18,7 +18,14 @@ The project grows in stages. Each stage must earn the next one with evidence fro
 - Run a small set of public or participant-approved cases
 - Measure time saved, currentness, routing accuracy, and duplicate risk
 
-## Phase 2: one permissioned action path
+## Phase 2: Civic Signal Protocol
+
+- Define a versioned envelope for cross-system handoff
+- Separate signal preview from confirmed submission
+- Define receipts, status, duplicate, and evidence-request responses
+- Test two independent local implementations without live government writes
+
+## Phase 3: one permissioned action path
 
 - Document a service that explicitly permits programmatic submission
 - Add a connector manifest with auth, rate limits, duplicate behavior, and failure handling
@@ -26,18 +33,18 @@ The project grows in stages. Each stage must earn the next one with evidence fro
 - Test in a safe or reversible environment before production use
 - Publish redacted outcomes and failures
 
-## Phase 3: reusable community layer
+## Phase 4: reusable community layer
 
 - Add more jurisdiction packs and languages
 - Add a private local evidence adapter
 - Add status and follow-up patterns
 - Establish maintainers, recheck dates, and a lightweight review process
 
-## Phase 4: optional runtime support
+## Phase 5: optional runtime support
 
 Only if repeated use shows a clear need, design a runtime for local scheduling, deduplication, or task handoff. The runtime must preserve the repository harness model and remain optional for participants who only want skills and knowledge.
 
-## Phase 5: institutional learning
+## Phase 6: institutional learning
 
 - Aggregate recurring, privacy-safe patterns
 - Separate evidence from interpretation and advocacy

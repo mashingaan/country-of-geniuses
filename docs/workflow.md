@@ -18,6 +18,12 @@
 
 The schema follows this lifecycle. A `discarded` card can honestly stop before routing. A `resolved` card needs service or public-record evidence. A `closed` card needs participant or public-record verification.
 
+## Protocol handoff
+
+A `prepared` card can produce a `signal_preview` envelope from the [Civic Signal Protocol](civic-signal-protocol.md). The participant reviews the recipient, content, evidence, disclosure, duplicate risk, and active-project check. Only explicit approval may produce a `submit_civic_signal` envelope.
+
+The receiving side can return `accepted`, `duplicate`, `needs_evidence`, or `rejected`, followed by read-only status responses. These responses are not automatic problem-card state changes. A duplicate or evidence request returns to human review, while a receipt and later independent evidence are recorded before advancing the case.
+
 ## Proactive mode
 
 Use proactive mode for a bounded question such as a city, a problem category, and a time window. Search only permitted public sources. Cluster possible duplicates before preparing any action. Prefer a small set of high-confidence candidates over a large stream of weak signals.

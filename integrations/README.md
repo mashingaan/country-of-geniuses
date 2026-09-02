@@ -33,3 +33,5 @@ The starter manifest is `integrations/catalog.yaml`. It contains a method-scoped
 ## MCP guidance
 
 MCP is an interface shape, not a trust guarantee. Treat every tool as potentially capable of exposing data or causing an external effect. Label read and write tools separately. A write-capable tool must return a preview or dry-run result before a confirmation step.
+
+For a cross-system civic handoff contract, see [`docs/civic-signal-protocol.md`](../docs/civic-signal-protocol.md). MCP is one possible adapter to that contract, not a requirement and not proof that a service is official.
